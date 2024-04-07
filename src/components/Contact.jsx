@@ -79,7 +79,7 @@ const Contact = () => {
                             data-aos="zoom-in"
                             data-aos-duration="1000"
                             type="submit"
-                            className='text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300'
+                            className='text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-105 duration-300'
                         >
                             Let's Talk
                         </button>

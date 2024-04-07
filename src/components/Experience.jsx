@@ -6,7 +6,7 @@ import node from '../assets/experience/node.png'
 import c from '../assets/experience/C++_logo.png'
 import react from '../assets/experience/react.png'
 import tailwind from '../assets/experience/tailwind.png'
-import python from '../assets/experience/python.png'
+import python from '../assets/experience/next.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -55,13 +55,13 @@ const Experience = () => {
         {
             id: 7,
             scr: c,
-            title: 'Flutter',
+            title: 'C++',
             style: 'shadow-cyan-800'
         },  
         {
             id: 9,
             scr: python,
-            title: 'Python',
+            title: 'Next Js',
             style: 'shadow-blue-400'
         }
     ]
@@ -80,7 +80,7 @@ const Experience = () => {
                         techs().map(({ id, scr, title, style }) => (
 
                             <div data-aos="zoom-in" data-aos-duration="500" key={id} className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
-                                <img src={scr} alt="" className='w-20 mx-auto' />
+                                <img src={scr} alt="" className='w-20 mt-2 mx-auto' />
                                 <p className='mt-4'>{title}</p>
                             </div>
                         ))

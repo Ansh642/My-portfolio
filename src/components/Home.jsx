@@ -12,6 +12,8 @@ const Home = () => {
     useEffect(()=> {
         AOS.init({duration: 1000})
     })
+
+    
     return (
 
     <div name="home" className='h-auto w-full bg-gradient-to-b from-black via-black to-gray-800'>
@@ -27,26 +29,26 @@ const Home = () => {
                         
 
                 <div className='flex flex-row gap-2'>
-                    <Link to="projects" smooth duration={500} data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2000" className='group rounded bg-gradient-to-r from-blue-600 to-cyan-600 w-1/3 h-8 flex items-center justify-center cursor-pointer mt-5 mb-28' >Portfolio
+                    <Link to="projects" smooth duration={400} data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2000" className='group rounded bg-gradient-to-r from-blue-600 to-cyan-600 w-1/3 h-8 flex items-center justify-center cursor-pointer mt-5 mb-28' >Portfolio
 
                         <span className='px-2 group-hover:rotate-90 duration-300'>
                             <MdOutlineArrowRightAlt size={25} />
                         </span>
                     </Link>
-                    <a target='_blank' rel="noreferrer"  href="mailto:anshagarwal642@gmail.com" smooth duration={500} data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2500" className='group hover:scale-105 rounded w-auto h-8 p-3 flex items-center bg-gradient-to-r from-indigo-600 via-purple-600 to-orange-600 justify-center cursor-pointer mt-5 mb-28' >
+                    <a target='_blank' rel="noreferrer"  href="mailto:anshagarwal642@gmail.com" smooth duration={400} data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2500" className='group hover:scale-105 rounded w-auto h-8 p-3 flex items-center bg-gradient-to-r from-indigo-600 via-purple-600 to-orange-600 justify-center cursor-pointer mt-5 mb-28' >
 
                         <span className='pr-2'>
                             <HiOutlineMail size={25} />
                         </span>
                         Hire Me
                     </a>
-                    <a target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/ansh-agarwal-b830b3218/" smooth duration={550} data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000" className='group hover:scale-105 rounded w-auto h-8 px-1 flex items-center bg-none justify-center cursor-pointer mt-5 mb-28' >
+                    <a target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/ansh-agarwal-b830b3218/" smooth duration={400} data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000" className='group hover:scale-105 rounded w-auto h-8 px-1 flex items-center bg-none justify-center cursor-pointer mt-5 mb-28' >
 
                         <span >
                         <BsLinkedin size={25}></BsLinkedin>
                         </span>
                     </a>
-                    <a target='_blank' rel="noreferrer" href="https://www.github.com/Ansh642" smooth duration={600} data-aos="fade-up" data-aos-delay="3000" data-aos-duration="3500" className='group hover:scale-105 rounded w-auto h-8 px-1 flex items-center bg-none justify-center cursor-pointer mt-5 mb-28' >
+                    <a target='_blank' rel="noreferrer" href="https://www.github.com/Ansh642" smooth duration={400} data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000" className='group hover:scale-105 rounded w-auto h-8 px-1 flex items-center bg-none justify-center cursor-pointer mt-5 mb-28' >
 
                         <span >
                         <BsGithub size={25}></BsGithub>
