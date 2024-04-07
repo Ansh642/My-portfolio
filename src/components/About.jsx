@@ -5,6 +5,13 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 const About = () => {
+
+    const downloadPDF = () => {
+        const pdfURL = ' https://drive.google.com/file/d/1x2uNc3bj1DlCU4bvrt1xDL4LlR3aF3mn/view?usp=drivesdk';
+        window.open(pdfURL, '_blank');
+    
+      };
+
     useEffect(() => {
         AOS.init({ duration: 1000 })
     })
@@ -19,21 +26,14 @@ const About = () => {
                 </div>
 
                 <p data-aos="slide-up" data-aos-duration="500" className='text-xl mt-5 ease-in fade-in'>
-                    I embarked my journey as a B.Tech Computer Science & Engineering student at Jaypee Institute of Information Technology in 2021. Along the way, I fearlessly explored various fields, including Graphic Designing, Content Creation, Freelancing, and Entrepreneurship. I delved into the world of cutting-edge technologies, such as Python, Cloud computing, React, Flutter, and Firebase. I also took my passion for technology and leadership to new heights by co-establishing Google Developer Student Clubs and the E-Cell in my college, alongside my equally enthusiastic classmates. At present, I serve GDSC RKMGEC as the Co-Lead and holds the significant responsibility of being the In-Charge of E-Cell RKMGEC.
+                    I embarked my journey as a B.Tech Computer Science & Engineering student at Jaypee Institute of Information Technology in 2021. I'm a dedicated Full Stack Web Developer. My passion lies in leveraging Java skills to create innovative software. I develop intuitive web interfaces using HTML, Tailwind CSS, and JavaScript, and I'm proficient in frameworks like Express.js, Node.js, and React.js. My problem-solving skills and knowledge of C++ enable me to optimize code efficiency. Additionally, my writing skills complement my technical abilities, allowing me to communicate complex concepts effectively. I thrive in collaborative environments and am highly motivated to deliver outstanding results. Let's connect and collaborate to bring your ideas to life!
                 </p>
                 <br />
-                <p data-aos="slide-up" data-aos-duration="500" className='text-xl mt-5 ease-in fade-in'>
-                    In a constant pursuit of sharing knowledge and fostering growth, I've organized numerous technical workshops, imparting valuable insights on technologies like Python, Android, and Google Cloud to aspiring learners. With a commitment to personal development and a drive for making a positive impact within the tech community.
-                </p>
-                {/* <br />
-                <p data-aos="fade-in" data-aos-duration="500" className='text-xl mt-5 ease-in  fade-in'>
-                    I've worked for many projects for my clients as well as my personal projects. I also contributed for the GDSC RKMGEC web page. I have a Instagram page (@codewithbiki) where I create content for those who are just starting with programming and have more that 70k followers. I have learning attitude and growth mindset which helps me to collaborate with people and work for the society.
-                </p> */}
+                
                 <div data-aos="zoom-in" data-aos-duration="500" className='mb-20 fade-in flex mx-auto items-center justify-center hover:scale-105 duration-300 rounded bg-gradient-to-b from-cyan-500 to-blue-500 lg:w-1/5 md:w-1/5 w-2/4 h-10 text-center cursor-pointer mt-10 gap-2'>
 
-
                     <AiOutlineCloudDownload />
-                    <a href="/" download>Download CV</a>
+                    <button onClick={downloadPDF}>Download CV</button>
                 </div>
             </div>
         </div>

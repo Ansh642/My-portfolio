@@ -3,8 +3,7 @@ import html from '../assets/experience/html.png'
 import css from '../assets/experience/css.png'
 import javascript from '../assets/experience/javascript.png'
 import node from '../assets/experience/node.png'
-import flutter from '../assets/experience/flutter.png'
-import firebase from '../assets/experience/firebase.png'
+import c from '../assets/experience/C++_logo.png'
 import react from '../assets/experience/react.png'
 import tailwind from '../assets/experience/tailwind.png'
 import python from '../assets/experience/python.png'
@@ -55,16 +54,10 @@ const Experience = () => {
         },
         {
             id: 7,
-            scr: flutter,
+            scr: c,
             title: 'Flutter',
             style: 'shadow-cyan-800'
-        },
-        {
-            id: 8,
-            scr: firebase,
-            title: 'Firebase',
-            style: 'shadow-yellow-800'
-        },
+        },  
         {
             id: 9,
             scr: python,

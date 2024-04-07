@@ -1,10 +1,7 @@
 import React,{useEffect} from 'react'
-import Sandesh from '../assets/projects/sandeshh.png'
-import Gist from '../assets/projects//gist.png'
-import Chatbot from '../assets/projects/chatbot.png'
-import Ide from '../assets/projects/ide.png'
-import ShopEasy from '../assets/projects/shopeasy.png'
-import Upscale from '../assets/projects/upscale.png'
+import ShopEasy from '../assets/projects/ecommerce.jpg'
+import StudyNotion from '../assets/projects/studyNotion.png'
+import Todo from '../assets/projects/todo.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -16,46 +13,25 @@ const Projects = () => {
   const Projects = () => [
     {
       id: 1,
-      src: Sandesh,
-      desc: "Sandesh is a Chat App made using ReactJS + Tailwind CSS + ChatEngine API Service + Firebase authentication...",
-      demo: "https://sandeshh.netlify.app/",
-      code: "https://github.com/dipayansarkar47/Sandesh"
+      src: Todo,
+      desc: "This is my Todo Application build using React and Framer Motion ",
+      demo: "/",
+      code: "https://github.com/Ansh642/Todo-App"
     },
     {
       id: 2,
       src: ShopEasy,
-      desc: "This Full-Stack ShopKaro e-commerce website is made using ReactJS, Tailwind CSS, Firebase....",
-      demo: "https://shopeasyy.vercel.app/",
-      code: "https://github.com/dipayansarkar47/shopeasy"
+      desc: "This Full-Stack e-commerce website is made using ReactJS, Tailwind CSS, MongoDb....",
+      demo: "/",
+      code: "https://github.com/Ansh642/ecommerce-app"
     },
     {
       id: 3,
-      src: Chatbot,
-      desc: "An Artificially Intelligent Chatbot using the GPT-4 Model to help people.",
-      demo: "https://cwbbot.vercel.app/",
-      code: "https://github.com/dipayansarkar47/ai-chatbot"
-    },
-    {
-      id: 4,
-      src: Ide,
-      // desc: "Keeper is a simple note taking application made using Flutter...",
-      demo: "https://opeditor.vercel.app/",
-      code: "https://github.com/dipayansarkar47/online-code-editor"
-    },
-    {
-      id: 5,
-      src: Upscale,
-      // desc: "It is a Weather application which shows temperatures of various cities across the globe made using REST API...",
-      demo: "https://upscaleai.vercel.app/",
-      code: "https://github.com/dipayansarkar47/upscale-ai"
-    },
-    {
-      id: 6,
-      src: Gist,
-      // desc: "It is a Face-Detection application made using Python and Computer Vision...",
-      demo: "https://gist-ai.vercel.app/",
-      code: "https://github.com/dipayansarkar47/Gist.AI-Summarizer"
-    },
+      src: StudyNotion,
+      desc: "An Ed-tech Platform build using MERN stack Technologies",
+      demo: "/",
+      code: "https://github.com/Ansh642/StudyNotion"
+    }
   ]
 
 
@@ -72,9 +48,12 @@ const Projects = () => {
             Projects().map(({ id, src, desc, demo, code }) => (
 
               <div data-aos="fade-in" data-aos-duration="500" key={id} className='shadow-md shadow-gray-600 rounded-lg'>
-                <img src={src} alt="Ai" className='rounded-md duration-200 hover:scale-105' />
-                <p className='p-2 text-justify font-extralight'>{desc}</p>
-                <div className='flex items-center justify-center'>
+
+                <img src={src} alt="Ai" className='rounded-md w-full h-[50%] duration-200 hover:scale-105' />
+
+                <p className='p-2 w-full h-[20%] mt-1 text-justify font-extralight'>{desc}</p>
+
+                <div className='flex items-center mx-auto mt-1 w-full h-[30%] justify-center'>
                   
                   <button className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105 bg-gradient-to-l from-gray-700 to-blue-900 rounded-md'>
                     <a href={demo}>Demo</a>
@@ -83,6 +62,7 @@ const Projects = () => {
                     <a href={code}>Code</a>
                   </button>
                 </div>
+
               </div>
 
             ))
@@ -94,3 +74,5 @@ const Projects = () => {
 }
 
 export default Projects
+
+

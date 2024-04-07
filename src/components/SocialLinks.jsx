@@ -23,7 +23,7 @@ const SocialLinks = () => {
                     LinkedIn <FaLinkedin size={25} />
                 </>
             ),
-            href: "https://www.linkedin.com/in/dipayan-sarkar-ab465b1b5/",
+            href: "https://www.linkedin.com/in/ansh-agarwal-b830b3218/",
         },
         {
             id: 3,
@@ -32,7 +32,7 @@ const SocialLinks = () => {
                     Mail <HiOutlineMail size={25} />
                 </>
             ),
-            href: "mailto:dipayansarkar265482@gmail.com",
+            href: "mailto:anshagarwal642@gmail.com",
         },
         {
             id: 4,
@@ -41,7 +41,7 @@ const SocialLinks = () => {
                     Resume <BsFillPersonLinesFill size={25} />
                 </>
             ),
-            href: "/Dipayan's Resume.pdf",
+            href: "",
             style: "rounded-br-md",
             download: true
         },
@@ -68,3 +68,4 @@ const SocialLinks = () => {
 }
 
 export default SocialLinks
+
