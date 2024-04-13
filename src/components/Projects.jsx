@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import ShopEasy from '../assets/projects/ecommerce.jpg';
 import StudyNotion from '../assets/projects/studyNotion.png';
 import Todo from '../assets/projects/todo.png';
+import GrooveX from '../assets/projects/GrooveX.jpg'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -35,7 +36,7 @@ const Projects = () => {
     },
     {
       id: 4,
-      src: Todo,
+      src: Todo ,
       desc: "This is my Todo Application build using React and Framer Motion.",
       demo: "https://todo-app-sigma-ivory.vercel.app/",
       code: "https://github.com/Ansh642/Todo-App"
@@ -43,7 +44,7 @@ const Projects = () => {
   ];
 
   return (
-    <div name="projects" className='h-auto max-h-screen-lg bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen'>
+    <div name="projects" className='h-auto max-h-screen-lg bg-gradient-to-b from-black to-gray-800 w-full text-white '>
       <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
         <div className='pb-8'>
           <h2 className='text-4xl font-bold inline border-b-4 border-gray-400'>Projects</h2>
