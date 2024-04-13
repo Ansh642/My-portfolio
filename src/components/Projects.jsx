@@ -14,10 +14,10 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      src: Todo,
-      desc: "This is my Todo Application build using React and Framer Motion.",
-      demo: "https://todo-app-sigma-ivory.vercel.app/",
-      code: "https://github.com/Ansh642/Todo-App"
+      src: StudyNotion,
+      desc: "An Ed-tech Platform build using MERN stack Technologies.",
+      demo: "https://study-notion-three-chi.vercel.app/",
+      code: "https://github.com/Ansh642/StudyNotion"
     },
     {
       id: 2,
@@ -28,11 +28,18 @@ const Projects = () => {
     },
     {
       id: 3,
-      src: StudyNotion,
-      desc: "An Ed-tech Platform build using MERN stack Technologies.",
-      demo: "/",
-      code: "https://github.com/Ansh642/StudyNotion"
-    }
+      src: GrooveX,
+      desc: "GrooveX, a vibrant music platform, technology of Next.js with the intuitive design of Acentury UI, redefining the digital music experience.",
+      demo: "https://groove-x.vercel.app/",
+      code: "https://github.com/Ansh642/GrooveX"
+    },
+    {
+      id: 4,
+      src: Todo,
+      desc: "This is my Todo Application build using React and Framer Motion.",
+      demo: "https://todo-app-sigma-ivory.vercel.app/",
+      code: "https://github.com/Ansh642/Todo-App"
+    },
   ];
 
   return (
