@@ -30,7 +30,7 @@ const Projects = () => {
     {
       id: 3,
       src: GrooveX,
-      desc: "GrooveX, a vibrant music platform, technology of Next.js with the intuitive design of Acentury UI, redefining the digital music experience.",
+      desc: "GrooveX, a music platform, technology of Next.js with the intuitive design of Acentury UI.",
       demo: "https://groove-x.vercel.app/",
       code: "https://github.com/Ansh642/GrooveX"
     },
