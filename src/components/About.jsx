@@ -7,7 +7,7 @@ import 'aos/dist/aos.css'
 const About = () => {
 
     const downloadPDF = () => {
-        const pdfURL = ' https://drive.google.com/file/d/1x2uNc3bj1DlCU4bvrt1xDL4LlR3aF3mn/view?usp=drivesdk';
+        const pdfURL = 'https://drive.google.com/file/d/1Aewa2e415qpyFWYKYUPsy-vtVV9_axn_/view?usp=drivesdk';
         window.open(pdfURL, '_blank');
     
       };

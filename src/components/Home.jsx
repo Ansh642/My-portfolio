@@ -24,7 +24,7 @@ const Home = () => {
                 </div>
                 <h2 data-aos="fade-in" data-aos-duration="1000" className='text-4xl sm:text-6xl font-bold text-white'>Ansh | <span data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-duration="1000" className='animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black'>Full-Stack Developer</span></h2>
                 <p data-aos="fade-in" data-aos-delay="400" data-aos-duration="2000" className='text-gray-400 py-4 max-w-md w-full'>
-                    I'm a B.Tech 3rd year Student of Jaypee Institute of Information Technology, Noida. With expertise in Data Structures and Algorithms (DSA), Development in ReactJs, NodeJs, MongoDB, MySQL & much more. As a dynamic and forward-thinking programmer, I'm committed to staying up to date with the latest trends and technologies in the field.
+                    I'm a B.Tech 4th year Student of Jaypee Institute of Information Technology, Noida. With expertise in Data Structures and Algorithms (DSA), Development in ReactJs, NodeJs, MongoDB, MySQL & much more. As a dynamic and forward-thinking programmer, I'm committed to staying up to date with the latest trends and technologies in the field.
                 </p>
                         
 

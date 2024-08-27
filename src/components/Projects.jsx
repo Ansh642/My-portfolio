@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import ShopEasy from '../assets/projects/ecommerce.jpg';
+import HealthEase from '../assets/projects/healthease.avif';
 import StudyNotion from '../assets/projects/studyNotion.png';
 import Todo from '../assets/projects/todo.png';
 import GrooveX from '../assets/projects/GrooveX.jpg'
@@ -16,16 +16,16 @@ const Projects = () => {
     {
       id: 1,
       src: StudyNotion,
-      desc: "An Ed-tech Platform build using MERN stack Technologies.",
+      desc: "An Ed-tech Platform build using MERN stack Technologies along with payment integration.",
       demo: "https://study-notion-three-chi.vercel.app/",
       code: "https://github.com/Ansh642/StudyNotion"
     },
     {
       id: 2,
-      src: ShopEasy,
-      desc: "This Full-Stack e-commerce website is made using ReactJS, Tailwind CSS and Node Js.",
-      demo: "/",
-      code: "https://github.com/Ansh642/ecommerce-app"
+      src: HealthEase,
+      desc: "HealthEase is a doctor appointment booking website built with React, Node.js, and Tailwind CSS for a seamless healthcare experience.",
+      demo: "https://github.com/Ansh642/HealthEase",
+      code: "https://github.com/Ansh642/HealthEase"
     },
     {
       id: 3,
