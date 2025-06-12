@@ -20,6 +20,21 @@ module.exports = {
           },
         },
       },
+      colors: {
+        primary: '#18181B', // Elegant dark
+        secondary: '#F3F4F6', // Soft light
+        accent: '#6366F1', // Premium accent (indigo)
+        muted: '#A1A1AA', // Muted gray
+        background: '#F9FAFB', // Light background
+        card: '#FFFFFF', // Card background
+        border: '#E5E7EB', // Border color
+      },
+      boxShadow: {
+        premium: '0 4px 32px 0 rgba(60, 72, 88, 0.12)',
+      },
+      borderRadius: {
+        premium: '1.5rem',
+      },
     },
     fontFamily: {
       heding: ["Raleway"],

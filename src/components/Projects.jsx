@@ -1,71 +1,121 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import HealthEase from '../assets/projects/healthease.avif';
-import StudyNotion from '../assets/projects/studyNotion.png';
-import Todo from '../assets/projects/todo.png';
-import GrooveX from '../assets/projects/GrooveX.jpg'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const projects = [
+  {
+    id: 1,
+    title: "WebIntelAI",
+    subtitle: "AI-Powered Web Scraping & Q&A",
+    desc: "Developed an AI agent to scrape websites, generate Gemini-based embeddings, and enable context-aware Q&A using ChromaDB and vector search.",
+    tags: ["Node.js", "Gemini", "ChromaDB", "LangChain"],
+    demo: "https://github.com/Ansh642/WebIntelAI",
+  },
+  {
+    id: 2,
+    title: "ClimaCast",
+    subtitle: "AI-Powered Weather Insight Agent",
+    desc: "Built an MCP server agent to fetch real-time weather data using the OpenWeatherMap API, delivering contextual responses and structured metadata for AI workflows.",
+    tags: ["Node.js", "OpenWeather", "MCP", "AI Agent"],
+    demo: "https://github.com/Ansh642/ClimaCast",
+  },
+  {
+    id: 3,
+    title: "LumiClaim",
+    subtitle: "MERN Stack + AI Automation",
+    desc: "Built an AI-integrated policy booking system, automating claims processing with OCR-based document verification and AI-driven recommendations, improving efficiency by 60%.",
+    tags: ["MERN", "OCR", "Docker", "LangGraph"],
+    demo: "https://github.com/Ansh642/LumiClaim",
+  },
+  {
+    id: 4,
+    title: "HealthEase",
+    subtitle: "Appointment Booking System",
+    desc: "Appointment booking system for doctors and patients with responsive UI and full CRUD functionality.",
+    tags: ["React", "Node.js", "Tailwind"],
+    demo: "https://github.com/Ansh642/HealthEase",
+  }
+];
 
 const Projects = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  });
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+    }
+  };
 
-  const projects = [
-    {
-      id: 1,
-      src: StudyNotion,
-      desc: "An Ed-tech Platform build using MERN stack Technologies along with payment integration.",
-      demo: "https://study-notion-three-chi.vercel.app/",
-      code: "https://github.com/Ansh642/StudyNotion"
-    },
-    {
-      id: 2,
-      src: HealthEase,
-      desc: "HealthEase is a doctor appointment booking website built with React, Node.js, and Tailwind CSS for a seamless healthcare experience.",
-      demo: "https://github.com/Ansh642/HealthEase",
-      code: "https://github.com/Ansh642/HealthEase"
-    },
-    {
-      id: 3,
-      src: GrooveX,
-      desc: "GrooveX, a music platform, technology of Next.js with the intuitive design of Acentury UI.",
-      demo: "https://groove-x.vercel.app/",
-      code: "https://github.com/Ansh642/GrooveX"
-    },
-    {
-      id: 4,
-      src: Todo ,
-      desc: "This is my Todo Application build using React and Framer Motion.",
-      demo: "https://todo-app-sigma-ivory.vercel.app/",
-      code: "https://github.com/Ansh642/Todo-App"
-    },
-  ];
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
 
   return (
-    <div name="projects" className='h-auto max-h-screen-lg bg-gradient-to-b from-black to-gray-800 w-full text-white '>
-      <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
-        <div className='pb-8'>
-          <h2 className='text-4xl font-bold inline border-b-4 border-gray-400'>Projects</h2>
-          <p className='py-6'>Check out some of my work</p>
-        </div>
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 mb-20 gap-8 px-12 sm:px-0'>
-          {projects.map(({ id, src, desc, demo, code }) => (
-            <div data-aos="fade-in" data-aos-duration="500" key={id} className='shadow-md shadow-gray-600 rounded-lg'>
-              <img src={src} alt="Ai" className='rounded-md w-full h-[50%] duration-200 hover:scale-105' />
-              <p className='p-2 w-full h-[20%] mt-1 text-justify font-extralight'>{desc}</p>
-              <div className='flex items-center mx-auto mt-1 w-full h-[30%] justify-center'>
-                <button className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105 bg-gradient-to-l from-gray-700 to-blue-900 rounded-md'>
-                  <Link to={demo} target="_blank" rel="noopener noreferrer">Demo</Link> {/* Use Link with target="_blank" and rel="noopener noreferrer" */}
-                </button>
-                <button className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105 bg-gradient-to-l from-purple-900 to-gray-700 rounded-md'>
-                  <Link to={code} target="_blank" rel="noopener noreferrer">Code</Link> {/* Use Link with target="_blank" and rel="noopener noreferrer" */}
-                </button>
+    <div name="projects" className='w-full bg-gradient-to-b from-gray-900 to-gray-800 py-20'>
+      <div className='max-w-6xl mx-auto px-6'>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true }}
+          className='mb-16 text-center'
+        >
+          <motion.h2 variants={itemVariants} className='text-4xl font-bold text-white mb-4 inline-block relative'>
+            My Projects
+            <span className='absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400'></span>
+          </motion.h2>
+          <motion.p variants={itemVariants} className='text-gray-400 text-lg mt-4 max-w-2xl mx-auto'>
+            A selection of intelligent applications and systems I’ve built using full-stack and AI technologies.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true }}
+          className='grid sm:grid-cols-1 md:grid-cols-2 gap-10'
+        >
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              className='bg-gray-800/60 border border-gray-700 rounded-2xl shadow-xl backdrop-blur-sm overflow-hidden flex flex-col hover:shadow-cyan-700/30 transition-all'
+            >
+              {/* GLOWING TITLE BLOCK */}
+              <div className='p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-b border-gray-700 text-center'>
+                <h3 className='text-white text-2xl font-bold tracking-wide animate-pulse'>
+                  {project.title}
+                </h3>
+                <p className='text-cyan-400 text-sm mt-1 italic'>{project.subtitle}</p>
               </div>
-            </div>
+
+              <div className='p-6 flex-1 flex flex-col justify-between'>
+                <p className='text-gray-300 text-sm mb-4'>{project.desc}</p>
+                <div className='flex flex-wrap gap-2 mb-6'>
+                  {project.tags.map((tag, index) => (
+                    <span key={index} className='text-xs bg-gray-700/50 text-cyan-400 px-2 py-1 rounded'>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <a 
+                  href={project.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className='block text-center py-2 px-4 bg-cyan-600 hover:bg-cyan-700 text-white rounded transition-colors duration-300'
+                >
+                  View Code
+                </a>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

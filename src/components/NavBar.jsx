@@ -1,69 +1,99 @@
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { Link } from "react-scroll"
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from "react-scroll";
 
 const NavBar = () => {
+  const [nav, setNav] = useState(false);
 
-    const [nav, setNav] = useState(false);
+  const links = [
+    { id: 1, link: 'home', label: 'Home' },
+    { id: 2, link: 'about', label: 'About' },
+    { id: 3, link: 'skills', label: 'Skills' },
+    { id: 4, link: 'projects', label: 'Projects' },
+    { id: 5, link: 'contact', label: 'Contact' }
+  ];
 
-    const link = [
-        {
-            id: 1,
-            link: 'home'
-        },
-        {
-            id: 2,
-            link: 'about'
-        },
-        {
-            id: 3,
-            link: 'skills'
-        },
-        {
-            id: 4,
-            link: 'projects'
-        },
-        {
-            id: 5,
-            link: 'contact'
-        }
-    ]
-    return (
-        <div className='flex justify-between fixed z-50 items-center w-full h-20 px-4 text-white bg-gradient-to-b from-gray-800 to-black'>
-            <div className='flex flex-row gap-1'>
-                <h3 className='text-4xl font-itim ml-4'>@Ansh</h3>
-            </div>
+  return (
+    <motion.div 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className='fixed w-full z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800'
+    >
+      <div className='max-w-6xl mx-auto px-8 flex justify-between items-center h-20'>
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          className='text-2xl font-bold text-cyan-400'
+        >
+          <span className='text-white'>@</span>Ansh
+        </motion.div>
 
-            <ul className='hidden md:flex'>
-                {link.map(({ id, link }) => (
+        <ul className='hidden md:flex gap-8'>
+          {links.map(({ id, link, label }) => (
+            <motion.li 
+              key={id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className='relative'
+            >
+              <Link 
+                to={link} 
+                smooth={true} 
+                duration={500} 
+                spy={true} 
+                exact='true' 
+                offset={-80}
+                className='text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer'
+              >
+                {label}
+                <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full'></span>
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
 
-                    <li key={id} className='px-4 cursor-pointer capitalize font-medium text-gray-200 hover:scale-105 duration-200'>
-                        <Link to={link} smooth={true} duration={500} spy={true} exact='true' offset={-80}>{link}</Link>
-                    </li>
-                ))}
-            </ul>
-
-            <div onClick={() => setNav(!nav)} className='md:hidden cursor-pointer pr-4 z-60'>
-                {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-            </div>
-            {
-                nav && (
-
-                    <ul className='flex z-50 flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-200'>
-                        <Link smooth={true} duration={500} spy={true} exact='true' offset={-80} className='absolute m-6 top-0 right-0 cursor-pointer' onClick={() => setNav(!nav)} to="home">
-                            <FaTimes size={30} />
-                        </Link> 
-                        {link.map(({ id, link }) => (
-                            <li className='px-4 cursor-pointer capitalize py-6 text-4xl '>
-                                <Link onClick={() => setNav(!nav)} to={link} smooth={true} duration={500} spy={true} exact='true' offset={-80}>{link}</Link>
-                            </li>
-                        ))}
-
-                    </ul>
-                )
-            }
+        <div 
+          onClick={() => setNav(!nav)} 
+          className='md:hidden cursor-pointer text-gray-300 hover:text-cyan-400 transition-colors duration-300'
+        >
+          {nav ? <FaTimes size={24} /> : <FaBars size={24} />}
         </div>
-    )
-}
 
-export default NavBar
+        {nav && (
+          <motion.ul 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className='absolute top-20 left-0 w-full bg-gray-900/95 backdrop-blur-sm flex flex-col items-center py-4 gap-6'
+          >
+            {links.map(({ id, link, label }) => (
+              <motion.li 
+                key={id}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className='text-gray-300 hover:text-cyan-400 transition-colors duration-300'
+              >
+                <Link 
+                  onClick={() => setNav(false)}
+                  to={link} 
+                  smooth={true} 
+                  duration={500} 
+                  spy={true} 
+                  exact='true' 
+                  offset={-80}
+                  className='px-4 py-2'
+                >
+                  {label}
+                </Link>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </div>
+    </motion.div>
+  );
+};
+
+export default NavBar;

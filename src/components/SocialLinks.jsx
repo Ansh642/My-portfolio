@@ -1,59 +1,57 @@
-import React from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { HiOutlineMail } from 'react-icons/hi'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const SocialLinks = () => {
+  const links = [
+    {
+      id: 1,
+      icon: <FaGithub className="w-5 h-5" />,
+      href: "https://github.com/Ansh642",
+      label: "GitHub",
+      color: "hover:bg-gray-700"
+    },
+    {
+      id: 2,
+      icon: <FaLinkedin className="w-5 h-5" />,
+      href: "https://linkedin.com/in/ansh-agarwal-b830b3218/",
+      label: "LinkedIn",
+      color: "hover:bg-blue-600"
+    },
+    {
+      id: 3,
+      icon: <HiOutlineMail className="w-5 h-5" />,
+      href: "mailto:anshagarwal642@gmail.com",
+      label: "Email",
+      color: "hover:bg-cyan-600"
+    }
+  ];
 
-    const links = [
-        {
-            id: 1,
-            child: (
-                <>
-                    GitHub <FaGithub size={25} />
-                </>
-            ),
-            href: "https://www.github.com/Ansh642",
-            style: "rounded-tr-md"
-        },
-        {
-            id: 2,
-            child: (
-                <>
-                    LinkedIn <FaLinkedin size={25} />
-                </>
-            ),
-            href: "https://www.linkedin.com/in/ansh-agarwal-b830b3218/",
-        },
-        {
-            id: 3,
-            child: (
-                <>
-                    Mail <HiOutlineMail size={25} />
-                </>
-            ),
-            href: "mailto:anshagarwal642@gmail.com",
-        },
-    ]
+  return (
+    <motion.div 
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 1 }}
+      className="fixed left-6 bottom-6 hidden lg:flex flex-col gap-4 z-50"
+    >
+      {links.map((link, index) => (
+        <motion.a
+          key={link.id}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ y: -5 }}
+          className={`flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 border border-gray-700 text-white ${link.color} transition-colors duration-300 group relative`}
+        >
+          {link.icon}
+          <span className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            {link.label}
+          </span>
+        </motion.a>
+      ))}
+    </motion.div>
+  );
+};
 
-    return (
-        <div className='hidden lg:flex flex-col top-[39%] left-0 fixed'>
-            <ul>
-                {links.map(({id, child, href, style, download}) => (
-                    <li key={id}
-                        className={"flex justify-between items-center w-40 h-14 px-4 bg-gray-500 ml-[-100px] hover:rounded-md hover:ml-[-10px] duration-300" + style}>
-                        <a href={href}
-                           download={download}
-                           className="flex justify-between items-center w-full text-white"
-                           target="_blank"
-                           rel="noreferrer">
-                            {child}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
-
-export default SocialLinks
-
+export default SocialLinks;

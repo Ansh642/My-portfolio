@@ -1,94 +1,98 @@
-import React, { useEffect } from 'react'
-import html from '../assets/experience/html.png'
-import css from '../assets/experience/css.png'
-import javascript from '../assets/experience/javascript.png'
-import node from '../assets/experience/node.png'
-import c from '../assets/experience/C++_logo.png'
-import react from '../assets/experience/react.png'
-import tailwind from '../assets/experience/tailwind.png'
-import python from '../assets/experience/next.png'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { SiTailwindcss, SiMongodb, SiExpress, SiCplusplus, SiDocker } from 'react-icons/si';
+import { TbBrandJavascript } from 'react-icons/tb';
+import { GrSystem } from 'react-icons/gr';
+import { AiOutlineDatabase } from 'react-icons/ai';
+
+const skills = [
+  { name: 'React', icon: <FaReact className='text-4xl text-cyan-400' />, level: 90 },
+  { name: 'JavaScript', icon: <TbBrandJavascript className='text-4xl text-yellow-400' />, level: 85 },
+  { name: 'Node.js', icon: <FaNodeJs className='text-4xl text-green-500' />, level: 80 },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss className='text-4xl text-cyan-300' />, level: 90 },
+  { name: 'MongoDB', icon: <SiMongodb className='text-4xl text-green-400' />, level: 75 },
+  { name: 'Express', icon: <SiExpress className='text-4xl text-gray-300' />, level: 70 },
+  { name: 'C++', icon: <SiCplusplus className='text-4xl text-blue-500' />, level: 85 },
+  { name: 'Docker', icon: <SiDocker className='text-4xl text-blue-400' />, level: 80 },
+  { name: 'System Design', icon: <GrSystem className='text-4xl text-white' />, level: 70 },
+  { name: 'SQL', icon: <AiOutlineDatabase className='text-4xl text-orange-300' />, level: 75 },
+];
 
 const Experience = () => {
-    useEffect(() => {
-        AOS.init({ duration: 1000 })
-    })
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
 
-    const techs = () => [
-        {
-            id: 1,
-            scr: html,
-            title: 'HTML',
-            style: 'shadow-orange-500'
-        },
-        {
-            id: 2,
-            scr: css,
-            title: 'CSS',
-            style: 'shadow-blue-500'
-        },
-        {
-            id: 3,
-            scr: javascript,
-            title: 'JAVASCRIPT',
-            style: 'shadow-yellow-500'
-        },
-        {
-            id: 4,
-            scr: react,
-            title: 'REACT',
-            style: 'shadow-blue-600'
-        },
-        {
-            id: 5,
-            scr: tailwind,
-            title: 'Tailwind',
-            style: 'shadow-sky-500'
-        },
-        {
-            id: 6,
-            scr: node,
-            title: 'Node JS',
-            style: 'shadow-green-500'
-        },
-        {
-            id: 7,
-            scr: c,
-            title: 'C++',
-            style: 'shadow-cyan-800'
-        },  
-        {
-            id: 9,
-            scr: python,
-            title: 'Next Js',
-            style: 'shadow-blue-400'
-        }
-    ]
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
-    return (
-        <div name="skills" className='bg-gradient-to-b from-gray-800 to-black text-white
-     w-full h-full'>
-            <div className='max-w-screen-lg max-h-screen-lg p-4 mx-auto flex flex-col justify-center w-full '>
-                <div className='pb-8'>
-                    <p className='text-4xl font-bold inline border-b-4 border-gray-400'>Skills</p>
-                    <p className='py-6'>This are the technologies I've worked with</p>
-                </div>
+  return (
+    <div name="skills" className='w-full bg-gradient-to-b from-gray-800 to-gray-900 py-20'>
+      <div className='max-w-6xl mx-auto px-8'>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true }}
+          className='mb-16'
+        >
+          <motion.h2 variants={itemVariants} className='text-4xl font-bold text-white mb-4 relative inline-block'>
+            My Skills
+            <span className='absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400'></span>
+          </motion.h2>
+          <motion.p variants={itemVariants} className='text-gray-400 text-lg max-w-3xl'>
+            Technologies I've been working with recently
+          </motion.p>
+        </motion.div>
 
-                <div className='w-full h-full grid grid-cols-2 text-center sm:grid-cols-3 gap-8 px-12 sm:px-0'>
-                    {
-                        techs().map(({ id, scr, title, style }) => (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true }}
+          className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className='bg-gray-800/50 border border-gray-700 rounded-xl p-6 backdrop-blur-sm flex flex-col items-center'
+            >
+              <div className='mb-4'>{skill.icon}</div>
+              <h3 className='text-white font-semibold text-lg mb-2'>{skill.name}</h3>
+              <div className='w-full bg-gray-700 rounded-full h-2.5'>
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  transition={{ duration: 1, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className='h-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600'
+                ></motion.div>
+              </div>
+              <span className='text-gray-400 text-sm mt-2'>{skill.level}%</span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
 
-                            <div data-aos="zoom-in" data-aos-duration="500" key={id} className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
-                                <img src={scr} alt="" className='w-20 mt-2 mx-auto' />
-                                <p className='mt-4'>{title}</p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default Experience
+export default Experience;

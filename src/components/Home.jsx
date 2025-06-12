@@ -1,71 +1,107 @@
-import React, { useEffect } from 'react'
-import Dp from "../assets/dp.jpeg"
-import { MdOutlineArrowRightAlt } from 'react-icons/md'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import { Link } from 'react-scroll'
-import '../App.css'
-import { HiOutlineMail } from 'react-icons/hi'
-import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
+import { HiOutlineMail } from 'react-icons/hi';
+import { BsGithub, BsLinkedin, BsArrowRight } from 'react-icons/bs';
+import Dp from "../assets/dp.jpeg";
 
 const Home = () => {
-    useEffect(()=> {
-        AOS.init({duration: 1000})
-    })
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
 
-    
-    return (
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
-    <div name="home" className='h-auto w-full bg-gradient-to-b from-black via-black to-gray-800'>
-        <div className='max-w-screen-lg mx-auto flex flex-col items-center justify-center  px-4 md:flex-row text-white'>
-            <div className='flex flex-col justify-center'>
-                <div>
-                    <img src={Dp} alt="my profile" data-aos="fade-in" data-aos-duration="500" className='mt-20 rounded-2xl w-1/3 md:w-1/3 lg:w-1/5 my-5 hover:scale-105 duration-300 sm:ease-in' />
-                </div>
-                <h2 data-aos="fade-in" data-aos-duration="1000" className='text-4xl sm:text-6xl font-bold text-white'>Ansh | <span data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-duration="1000" className='animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black'>Full-Stack Developer</span></h2>
-                <p data-aos="fade-in" data-aos-delay="400" data-aos-duration="2000" className='text-gray-400 py-4 max-w-md w-full'>
-                    I'm a B.Tech 4th year Student of Jaypee Institute of Information Technology, Noida. With expertise in Data Structures and Algorithms (DSA), Development in ReactJs, NodeJs, MongoDB, MySQL & much more. As a dynamic and forward-thinking programmer, I'm committed to staying up to date with the latest trends and technologies in the field.
-                </p>
-                        
+  return (
+    <div name="home" className='w-full h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900'>
+      <div className='max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center justify-center h-full gap-12'>
+        <motion.div 
+          className='flex-1'
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants} className='mb-8'>
+            <h1 className='text-5xl md:text-6xl font-bold text-white mb-4'>
+              Hi, I'm <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600'>Ansh</span>
+            </h1>
+            <h2 className='text-4xl md:text-5xl font-bold text-gray-300'>
+              Software Developer | MERN & AI
+            </h2>
+          </motion.div>
 
-                <div className='flex flex-row gap-2'>
-                    <Link to="projects" smooth duration={400} data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2000" className='group rounded bg-gradient-to-r from-blue-600 to-cyan-600 w-1/3 h-8 flex items-center justify-center cursor-pointer mt-5 mb-28' >Portfolio
+          <motion.p variants={itemVariants} className='text-gray-400 text-lg max-w-lg mb-8'>
+            I'm a Full Stack Developer with hands-on experience at companies like Lumiq.ai and Inditech Health Solutions. I build intelligent, scalable web applications using the MERN stack, AI agents, and modern tooling like Docker and TypeScript.
+          </motion.p>
 
-                        <span className='px-2 group-hover:rotate-90 duration-300'>
-                            <MdOutlineArrowRightAlt size={25} />
-                        </span>
-                    </Link>
-                    <a target='_blank' rel="noreferrer"  href="mailto:anshagarwal642@gmail.com" smooth duration={400} data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2500" className='group hover:scale-105 rounded w-auto h-8 p-3 flex items-center bg-gradient-to-r from-indigo-600 via-purple-600 to-orange-600 justify-center cursor-pointer mt-5 mb-28' >
+          <motion.div variants={itemVariants} className='flex flex-wrap gap-4'>
+            <Link 
+              to="projects" 
+              smooth 
+              duration={500}
+              className='group relative flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg overflow-hidden'
+            >
+              <span className='relative z-10'>View Work</span>
+              <BsArrowRight className='relative z-10 transition-transform duration-300 group-hover:translate-x-1' />
+              <div className='absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+            </Link>
 
-                        <span className='pr-2'>
-                            <HiOutlineMail size={25} />
-                        </span>
-                        Hire Me
-                    </a>
-                    <a target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/ansh-agarwal-b830b3218/" smooth duration={400} data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000" className='group hover:scale-105 rounded w-auto h-8 px-1 flex items-center bg-none justify-center cursor-pointer mt-5 mb-28' >
+            <a 
+              href="mailto:anshagarwal642@gmail.com"
+              className='group relative flex items-center gap-2 px-6 py-3 border border-cyan-400 text-cyan-400 rounded-lg overflow-hidden hover:text-white'
+            >
+              <span className='relative z-10'>Hire Me</span>
+              <HiOutlineMail className='relative z-10' />
+              <div className='absolute inset-0 bg-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10'></div>
+            </a>
+          </motion.div>
 
-                        <span >
-                        <BsLinkedin size={25}></BsLinkedin>
-                        </span>
-                    </a>
-                    <a target='_blank' rel="noreferrer" href="https://www.github.com/Ansh642" smooth duration={400} data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000" className='group hover:scale-105 rounded w-auto h-8 px-1 flex items-center bg-none justify-center cursor-pointer mt-5 mb-28' >
+          <motion.div variants={itemVariants} className='flex gap-4 mt-8'>
+            <a href="https://www.linkedin.com/in/ansh-agarwal-b830b3218/" target="_blank" rel="noreferrer" className='p-2 text-gray-400 hover:text-cyan-400 transition-colors duration-300'>
+              <BsLinkedin className='text-2xl' />
+            </a>
+            <a href="https://www.github.com/Ansh642" target="_blank" rel="noreferrer" className='p-2 text-gray-400 hover:text-cyan-400 transition-colors duration-300'>
+              <BsGithub className='text-2xl' />
+            </a>
+          </motion.div>
+          
+        </motion.div>
 
-                        <span >
-                        <BsGithub size={25}></BsGithub>
-                        </span>
-                    </a>
-                    
-                </div>
-
-            </div>
-
-        </div>
-            
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className='relative flex-1 flex justify-center'
+        >
+          <div className='relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-cyan-400/20'>
+            <img 
+              src={Dp} 
+              alt="Profile" 
+              className='w-full h-full object-cover'
+            />
+            <div className='absolute inset-0 bg-cyan-400/10 mix-blend-overlay'></div>
+          </div>
+          <div className='absolute -z-10 w-72 h-72 md:w-96 md:h-96 rounded-full bg-cyan-400/10 blur-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'></div>
+        </motion.div>
+      </div>
     </div>
-    )
-}
+  );
+};
 
-export default Home
-
-
-
+export default Home;

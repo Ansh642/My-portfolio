@@ -1,43 +1,115 @@
-import React, { useEffect } from 'react'
-import { AiOutlineCloudDownload } from 'react-icons/ai'
-import '../App.css'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { AiOutlineCloudDownload } from 'react-icons/ai';
 
 const About = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
 
-    const downloadPDF = () => {
-        const pdfURL = 'https://drive.google.com/file/d/1Aewa2e415qpyFWYKYUPsy-vtVV9_axn_/view?usp=drivesdk';
-        window.open(pdfURL, '_blank');
-    
-      };
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
-    useEffect(() => {
-        AOS.init({ duration: 1000 })
-    })
-    
-    return (
-        <div name="about" className='w-full h-auto bg-gradient-to-b from-gray-800 to-black text-white'>
-            <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-auto'>
-                <div className='pb-8'>
+  const downloadPDF = () => {
+    const pdfURL = 'https://docs.google.com/document/d/1oo5jGsRMnumrLmodJBiEI_Q2aYgA0v3qg01qhmw6_qI/edit?usp=drive_link';
+    window.open(pdfURL, '_blank');
+  };
 
-                    <h2 className='text-4xl  font-bold inline border-b-4 border-gray-500'>About</h2>
+  return (
+    <div name="about" className='w-full bg-gradient-to-b from-gray-900 to-gray-800 py-20'>
+      <div className='max-w-6xl mx-auto px-8'>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true }}
+          className='mb-16'
+        >
+          <motion.h2 variants={itemVariants} className='text-4xl font-bold text-white mb-4 relative inline-block'>
+            About Me
+            <span className='absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400'></span>
+          </motion.h2>
+          <motion.p variants={itemVariants} className='text-gray-400 text-lg max-w-3xl'>
+            Get to know more about who I am and what I do
+          </motion.p>
+        </motion.div>
 
-                </div>
-
-                <p data-aos="slide-up" data-aos-duration="500" className='text-xl mt-5 ease-in fade-in'>
-                    I embarked my journey as a B.Tech Computer Science & Engineering student at Jaypee Institute of Information Technology in 2021. I'm a dedicated Full Stack Web Developer. My passion lies in leveraging Java skills to create innovative software. I develop intuitive web interfaces using HTML, Tailwind CSS, and JavaScript, and I'm proficient in frameworks like Express.js, Node.js, and React.js. My problem-solving skills and knowledge of C++ enable me to optimize code efficiency. Additionally, my writing skills complement my technical abilities, allowing me to communicate complex concepts effectively. I thrive in collaborative environments and am highly motivated to deliver outstanding results. Let's connect and collaborate to bring your ideas to life!
-                </p>
-                <br />
-                
-                <div data-aos="zoom-in" data-aos-duration="500" className='mb-20 fade-in flex mx-auto items-center justify-center hover:scale-105 duration-300 rounded bg-gradient-to-b from-cyan-500 to-blue-500 lg:w-1/5 md:w-1/5 w-2/4 h-10 text-center cursor-pointer mt-10 gap-2'>
-
-                    <AiOutlineCloudDownload />
-                    <button onClick={downloadPDF}>Download CV</button>
-                </div>
+        <div className='grid md:grid-cols-2 gap-12 items-center'>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className='relative'
+          >
+            <div className='absolute -top-8 -left-8 w-64 h-64 bg-cyan-400/10 rounded-lg'></div>
+            <div className='relative bg-gray-800/50 border border-gray-700 rounded-lg p-8 backdrop-blur-sm'>
+              <h3 className='text-2xl font-bold text-white mb-4'>Who am I?</h3>
+              <p className='text-gray-300 mb-6'>
+                I'm Ansh Agarwal, a passionate Full Stack Developer and B.Tech Computer Science graduate from JIIT Noida. I specialize in the MERN stack and love building scalable, intelligent applications that solve real-world problems.
+              </p>
+              <p className='text-gray-300 mb-6'>
+                I've worked with companies like <strong>Lumiq.ai</strong> and <strong>Inditech Health Solutions</strong>, and built projects such as <strong>LumiClaim</strong>, <strong>StudyNotion</strong>, and <strong>HealthEase</strong>. My tech stack includes React, Node.js, TypeScript, Docker, SQL, and AI integrations like Gemini and LangChain.
+              </p>
+              <p className='text-gray-300 mb-6'>
+                I’m always up for learning new things, sharing knowledge, and collaborating on impactful ideas.
+              </p>
+              
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={downloadPDF}
+                className='flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg text-white'
+              >
+                <AiOutlineCloudDownload />
+                Download CV
+              </motion.button>
             </div>
-        </div>
-    )
-}
+          </motion.div>
 
-export default About
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className='grid grid-cols-2 gap-4'
+          >
+            {[
+              { title: 'Experience', value: '1.5+ Years', desc: 'Across 3 internships & 15+ projects' },
+              { title: 'Education', value: 'B.Tech CSE', desc: 'JIIT Noida (2021-2025)' },
+              { title: 'Projects', value: '15+', desc: 'LumiClaim, StudyNotion, HealthEase, more' },
+              { title: 'Tech Stack', value: '10+', desc: 'MERN, Docker, TypeScript, AI, and more' },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -5 }}
+                className='bg-gray-800/50 border border-gray-700 rounded-lg p-6 backdrop-blur-sm'
+              >
+                <h4 className='text-cyan-400 text-lg font-semibold'>{item.title}</h4>
+                <p className='text-white text-2xl font-bold my-2'>{item.value}</p>
+                <p className='text-gray-400 text-sm'>{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default About;
