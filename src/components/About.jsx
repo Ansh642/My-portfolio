@@ -26,7 +26,7 @@ const About = () => {
   };
 
   const downloadPDF = () => {
-    const pdfURL = 'https://docs.google.com/document/d/1oo5jGsRMnumrLmodJBiEI_Q2aYgA0v3qg01qhmw6_qI/edit?usp=drive_link';
+    const pdfURL = 'https://drive.google.com/file/d/18LLtO9Y0fLAnhKnjmYraa-hOFXRW14-7/view?usp=drive_link';
     window.open(pdfURL, '_blank');
   };
 
@@ -61,15 +61,15 @@ const About = () => {
             <div className='relative bg-gray-800/50 border border-gray-700 rounded-lg p-8 backdrop-blur-sm'>
               <h3 className='text-2xl font-bold text-white mb-4'>Who am I?</h3>
               <p className='text-gray-300 mb-6'>
-                I'm Ansh Agarwal, a passionate Full Stack Developer and B.Tech Computer Science graduate from JIIT Noida. I specialize in the MERN stack and love building scalable, intelligent applications that solve real-world problems.
+                I’m Ansh Agarwal, currently working as a <strong>Software Developer Intern at Lumiq.ai</strong>, where I contribute to full-stack features and intelligent automation workflows using React, Node.js, and Docker.
               </p>
               <p className='text-gray-300 mb-6'>
-                I've worked with companies like <strong>Lumiq.ai</strong> and <strong>Inditech Health Solutions</strong>, and built projects such as <strong>LumiClaim</strong>, <strong>StudyNotion</strong>, and <strong>HealthEase</strong>. My tech stack includes React, Node.js, TypeScript, Docker, SQL, and AI integrations like Gemini and LangChain.
+                Previously, I interned at <strong>Inditech Health Solutions</strong> as a Product Development Intern, where I worked with PHP and SQL to enhance healthcare systems. I also served as a MERN stack intern at a startup, building dynamic web applications.
               </p>
               <p className='text-gray-300 mb-6'>
-                I’m always up for learning new things, sharing knowledge, and collaborating on impactful ideas.
+                I’ve built over 10 projects, including <strong>LumiClaim</strong>, <strong>WebIntelAI</strong>, and <strong>HealthEase</strong>, using modern tools like Docker, TypeScript, and Gemini AI. My passion lies in building scalable, AI-integrated solutions that make an impact.
               </p>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -89,11 +89,11 @@ const About = () => {
             viewport={{ once: true }}
             className='grid grid-cols-2 gap-4'
           >
-            {[
-              { title: 'Experience', value: '1.5+ Years', desc: 'Across 3 internships & 15+ projects' },
-              { title: 'Education', value: 'B.Tech CSE', desc: 'JIIT Noida (2021-2025)' },
-              { title: 'Projects', value: '15+', desc: 'LumiClaim, StudyNotion, HealthEase, more' },
-              { title: 'Tech Stack', value: '10+', desc: 'MERN, Docker, TypeScript, AI, and more' },
+            {[ 
+              { title: 'Experience', value: '1.5+ Years', desc: 'Across 2 internships & 15+ projects' },
+              { title: 'Education', value: 'B.Tech CSE', desc: 'JIIT Noida (2021–2025)' },
+              { title: 'Projects', value: '10+', desc: 'LumiClaim, WebIntelAI, HealthEase, more' },
+              { title: 'Tech Stack', value: '7+', desc: 'MERN, Docker, TypeScript, AI, and more' },
             ].map((item, index) => (
               <motion.div
                 key={index}
